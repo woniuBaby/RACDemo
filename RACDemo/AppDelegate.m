@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     
     //我添加这句话
+    //刚刚的那句话不算
     
     ViewController *vc = [ViewController new];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
