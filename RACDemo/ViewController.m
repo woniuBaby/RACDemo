@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "RedView.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import <math.h>
 @interface ViewController ()<ButtonClickDelegate>
 @property (nonatomic,strong)RedView *redView;
 @property (nonatomic,assign)NSInteger num;
@@ -43,8 +44,28 @@
     [self dingshiqi];
 //    6RAC  使用
     [self RACUsing];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    [dic setValue:@"lll" forKey:@"abc"];
+    [dic setValue:@"222" forKey:@"def"];
+    [dic setValue:@"333" forKey:@"ofq"];
+    [dic setValue:@"444" forKey:@"rst"];
+    NSLog(@"%@",[self convertJSONWithDic:dic]);
+    
 }
 
+
+
+//字典转JSON
+-(NSString *)convertJSONWithDic:(NSDictionary *)dic {
+    NSError *err;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&err];
+    if (err) {
+        return @"字典转JSON出错";
+    }
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
 
 
 
